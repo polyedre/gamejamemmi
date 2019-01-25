@@ -28,8 +28,7 @@ func _physics_process(delta):
 	
 	velocity.x *= HORIZONTAL_FRICTION
 	
-	var collision = move_and_slide(velocity, Vector2(0,-1))
-	
+	move_and_slide(velocity)
 	
 	var grounded = is_on_floor()
 	velocity.y += GRAVITY
@@ -40,7 +39,16 @@ func _physics_process(delta):
 	if velocity.y > MAX_FALL_SPEED:
 		velocity.y = MAX_FALL_SPEED
 	
-	
+	if is_on_wall() and not is_on_floor(): #Collé à un mur
+		velocity = Vector2(0,0)
+		if Input.is_action_pressed("jump"):
+			if velocity.x > 0:
+				velocity = Vector2(-1000, -1000)
+				print(">")
+			else:
+				print("<")
+				velocity = Vector2(1000, -1000)
+
 	if grounded:
 		if move_dir == 0:
 			play_anim("idle")
