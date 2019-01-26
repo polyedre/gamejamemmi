@@ -10,12 +10,12 @@
 [ext_resource path="res://second_plat_tuto.png" type="Texture" id=8]
 [ext_resource path="res://third_plat_tuto.png" type="Texture" id=9]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 19.5753 )
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
@@ -70,16 +70,16 @@ __meta__ = {
 
 position = Vector2( -116.364, 29.0909 )
 scale = Vector2( 27.5, 5.56115 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Plateforme/CollisionShape2D" index="0"]
 
 pause_mode = 1
 position = Vector2( -1.16103, 9.05774 )
 scale = Vector2( 0.0172349, 0.0521886 )
-frames = SubResource( 1 )
+frames = SubResource( 2 )
 animation = "default"
-frame = 2
+frame = 1
 playing = true
 _sections_unfolded = [ "Pause" ]
 
@@ -103,16 +103,15 @@ __meta__ = {
 
 position = Vector2( -116.364, 29.0909 )
 scale = Vector2( 27.5, 5.56115 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Plateforme2/CollisionShape2D" index="0"]
 
 pause_mode = 1
 position = Vector2( -1.16103, 9.05774 )
 scale = Vector2( 0.0172349, 0.0521886 )
-frames = SubResource( 1 )
+frames = SubResource( 2 )
 animation = "default"
-frame = 2
 playing = true
 _sections_unfolded = [ "Pause" ]
 
@@ -136,16 +135,15 @@ __meta__ = {
 
 position = Vector2( -116.364, 29.0909 )
 scale = Vector2( 27.5, 5.56115 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Plateforme4/CollisionShape2D" index="0"]
 
 pause_mode = 1
 position = Vector2( -1.16103, 9.05774 )
 scale = Vector2( 0.0172349, 0.0521886 )
-frames = SubResource( 1 )
+frames = SubResource( 2 )
 animation = "default"
-frame = 1
 playing = true
 _sections_unfolded = [ "Pause" ]
 
@@ -169,16 +167,15 @@ __meta__ = {
 
 position = Vector2( -116.364, 29.0909 )
 scale = Vector2( 27.5, 5.56115 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Plateforme3/CollisionShape2D" index="0"]
 
 pause_mode = 1
 position = Vector2( -1.16103, 9.05774 )
 scale = Vector2( 0.0172349, 0.0521886 )
-frames = SubResource( 1 )
+frames = SubResource( 2 )
 animation = "default"
-frame = 1
 playing = true
 _sections_unfolded = [ "Pause" ]
 
@@ -210,6 +207,7 @@ position = Vector2( -29.0908, 0 )
 scale = Vector2( 0.454545, 0.338371 )
 frames = SubResource( 4 )
 animation = "default"
+frame = 3
 playing = true
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="." index="6"]
@@ -240,7 +238,7 @@ position = Vector2( -29.0908, 0 )
 scale = Vector2( 0.454545, 0.338371 )
 frames = SubResource( 4 )
 animation = "default"
-frame = 3
+frame = 2
 playing = true
 
 [node name="StaticBody2D5" type="StaticBody2D" parent="." index="7"]
@@ -271,7 +269,7 @@ position = Vector2( -29.0908, 0 )
 scale = Vector2( 0.454545, 0.338371 )
 frames = SubResource( 4 )
 animation = "default"
-frame = 3
+frame = 2
 playing = true
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="." index="8"]
@@ -301,7 +299,7 @@ position = Vector2( -29.0908, 0 )
 scale = Vector2( 0.454545, 0.338371 )
 frames = SubResource( 4 )
 animation = "default"
-frame = 2
+frame = 1
 playing = true
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="." index="9"]
@@ -331,7 +329,6 @@ position = Vector2( -29.0908, 0 )
 scale = Vector2( 0.454545, 0.338371 )
 frames = SubResource( 4 )
 animation = "default"
-frame = 2
 playing = true
 
 
