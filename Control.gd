@@ -2,8 +2,6 @@ extends Control
 
 var _pen = null
 var _prev_mouse_pos = Vector2()
-var _line_points = Array()
-
 var drawings = Array()
 
 
@@ -58,38 +56,33 @@ func _process(delta):
 		if d.decTime() == 1:
 			drawings.erase(d)
 
-	if Input.is_action_just_released("click"):
-		var line = Line2D.new()
-		line.set_width(5)
-		var body = create_body(_line_points[0])
-		var length = _line_points.size()
-
-		for i in range(length-1):
-			create_collider(_line_points[i], _line_points[i+1], body)
-			line.add_point(_line_points[i])
-			line.add_point(_line_points[i+1])
-
-
-		var drawing = Drawing.new(body, self, line)
-		drawings.append(drawing)
-
-		add_child(line)
-		_line_points.clear()
-		#line.set_color(Color(0,0,0))
-
 
 
 
 func _on_draw():
 	var mouse_pos = get_local_mouse_position()
 	if Input.is_mouse_button_pressed(BUTTON_LEFT):
-		_line_points.append(mouse_pos)
-		draw_segment()
+		#_line_points.append(mouse_pos)
+		draw_segment(mouse_pos)
 
 	_prev_mouse_pos = mouse_pos
 
-func draw_segment():
-	print("ok")
+func draw_segment(mouse_pos):
+	var line = Line2D.new()
+	line.default_color = Color(0,0,0)
+	line.set_width(5)
+	var body = create_body(_prev_mouse_pos)
+
+
+	create_collider(_prev_mouse_pos, mouse_pos, body)
+	line.add_point(_prev_mouse_pos)
+	line.add_point(mouse_pos)
+
+
+	var drawing = Drawing.new(body, self, line)
+	drawings.append(drawing)
+
+	add_child(line)
 
 func create_body(pos):
 	var rigidbody = StaticBody2D.new()
