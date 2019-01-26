@@ -6,7 +6,7 @@
 [ext_resource path="res://brick_2.png" type="Texture" id=4]
 [ext_resource path="res://brick_3.png" type="Texture" id=5]
 [ext_resource path="res://brick_4.png" type="Texture" id=6]
-[ext_resource path="res://256x256/border_2.png" type="Texture" id=7]
+[ext_resource path="res://bords.png" type="Texture" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -97,4 +97,3 @@ extents = Vector2( 32, 32 )
 7/occluder_offset = Vector2( 128, 128 )
 7/navigation_offset = Vector2( 128, 128 )
 7/shapes = [  ]
-

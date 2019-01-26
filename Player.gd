@@ -7,8 +7,8 @@ const MAX_FALL_SPEED = 1000
 const HORIZONTAL_ACCELERATION = 80
 const HORIZONTAL_FRICTION = 0.95
 
-onready var anim_player = $AnimationPlayer
-onready var sprite = $Sprite
+onready var sprite = $AnimatedSprite
+#onready var sprite = $Sprite
 
 var velocity = Vector2()
 var facing_right = false
@@ -19,11 +19,11 @@ func _physics_process(delta):
 	if Input.is_action_pressed("move_right"):
 		velocity.x = min(velocity.x + HORIZONTAL_ACCELERATION,
 		MOVE_SPEED)  
-		move_dir = 1
+		flip(1)
 	elif Input.is_action_pressed("move_left"):
 		velocity.x = max(velocity.x - HORIZONTAL_ACCELERATION,
 		- MOVE_SPEED)
-		move_dir = -1
+		flip(-1)
 	
 	else:
 		velocity.x *= (abs(velocity.x) / MOVE_SPEED) * 0.95
@@ -48,11 +48,15 @@ func _physics_process(delta):
 	else:
 		play_anim("jump")
 
-func flip():
-	facing_right = !facing_right
-	sprite.flip_h = !sprite.flip_h
+func flip(x):
+	if x==1:
+		facing_right = true
+		sprite.flip_h = true
+	elif x == -1:
+		facing_right = false
+		sprite.flip_h = false
 
 func play_anim(anim_name):
-	if anim_player.is_playing() and anim_player.current_animation == anim_name:
+	if sprite.is_playing() and sprite.animation == anim_name:
 		return
-	anim_player.play(anim_name)
+	sprite.play(anim_name)
