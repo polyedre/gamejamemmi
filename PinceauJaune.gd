@@ -1,5 +1,7 @@
 extends Control
 
+var inkbar
+
 var _pen = null
 var _prev_mouse_pos = Vector2()
 var drawings = Array()
@@ -10,7 +12,7 @@ var player
 
 const PAINT_WIDTH = 5
 const INITIAL_PAINT = 100
-
+const INK_TIME = 120
 
 class Drawing:
 
@@ -21,7 +23,7 @@ class Drawing:
 
 	func _init(staticbody, parent, line):
 		body = staticbody
-		ttl = 150
+		ttl = INK_TIME
 		root = parent
 		self.line = line
 
@@ -32,10 +34,18 @@ class Drawing:
 			root.remove_child(line)
 			return 1
 		return 0
-
+	
+	
+func updateInkbar():
+	var percentage = (float(available_paint) / INITIAL_PAINT) * 100
+	inkbar.value = percentage
+	
 func _ready():
 	available_paint = INITIAL_PAINT
-
+	
+	if self.name != "Menu":
+		inkbar = get_node('../Player/InkBar')
+	
 	var viewport = Viewport.new()
 	var rect = get_rect()
 	viewport.size = rect.size
@@ -59,6 +69,11 @@ func _ready():
 
 
 func _process(delta):
+	
+	
+	if inkbar:
+		updateInkbar()
+		
 	_pen.update()
 
 	for d in drawings:
@@ -73,6 +88,8 @@ func _on_draw():
 	if Input.is_mouse_button_pressed(BUTTON_LEFT) && available_paint > 0:
 		#_line_points.append(mouse_pos)
 		available_paint = available_paint-1
+		if inkbar:
+			updateInkbar()
 		draw_segment(mouse_pos)
 
 	_prev_mouse_pos = mouse_pos
@@ -109,7 +126,9 @@ func create_collider(start, end, body):
 	shape.b = end
 	collider.set_shape(shape)
 	body.add_child(collider)
-
-
+	
+	
 func inc_ink():
-	available_paint = available_paint+25
+	available_paint = min(INITIAL_PAINT, available_paint+25)
+	if inkbar:
+		updateInkbar()

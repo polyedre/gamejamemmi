@@ -12,6 +12,7 @@ var player
 
 const PAINT_WIDTH = 5
 const INITIAL_PAINT = 100
+const INK_TIME = 120
 
 class Drawing:
 
@@ -22,7 +23,7 @@ class Drawing:
 
 	func _init(staticbody, parent, line):
 		body = staticbody
-		ttl = 150
+		ttl = INK_TIME
 		root = parent
 		self.line = line
 
@@ -37,8 +38,8 @@ class Drawing:
 	
 func updateInkbar():
 	var percentage = (float(available_paint) / INITIAL_PAINT) * 100
-	print("atualizando")
 	inkbar.value = percentage
+	print("ue")
 	
 func _ready():
 	available_paint = INITIAL_PAINT
@@ -46,6 +47,7 @@ func _ready():
 	if self.name == "Menu":
 		print("to no menu porra")
 	else:
+		print("n to no menu")
 		inkbar = get_node('../Player/InkBar')
 	
 	var viewport = Viewport.new()

@@ -5,12 +5,12 @@
 [ext_resource path="res://ink_2.png" type="Texture" id=3]
 [ext_resource path="res://ink_3.png" type="Texture" id=4]
 
-[sub_resource type="CircleShape2D" id=6]
+[sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 10.0
 
-[sub_resource type="SpriteFrames" id=7]
+[sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
@@ -21,7 +21,6 @@ animations = [ {
 
 [node name="Encre" type="Area2D"]
 
-editor/display_folded = true
 position = Vector2( 478.692, 447.564 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -36,16 +35,15 @@ script = ExtResource( 1 )
 
 position = Vector2( 10.3043, 2.42313 )
 scale = Vector2( 2.40548, 2.30796 )
-shape = SubResource( 6 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Material", "Visibility" ]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CollisionShape2D" index="0"]
 
 position = Vector2( -0.232059, 2.49464 )
 scale = Vector2( 0.0331609, 0.0295092 )
-frames = SubResource( 7 )
+frames = SubResource( 2 )
 animation = "default"
-frame = 2
 playing = true
 
 

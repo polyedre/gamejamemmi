@@ -8,7 +8,6 @@ const HORIZONTAL_ACCELERATION = 80
 const HORIZONTAL_FRICTION = 0.95
 
 onready var sprite = $AnimatedSprite
-#onready var sprite = $Sprite
 
 var velocity = Vector2()
 var facing_right = false
