@@ -11,8 +11,12 @@ config_version=3
 [application]
 
 config/name="platformer"
-run/main_scene="res://World.tscn"
+run/main_scene="res://Menu.tscn"
 config/icon="res://icon.png"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "TileSetCutter" )
 
 [input]
 

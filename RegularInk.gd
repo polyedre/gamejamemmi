@@ -9,6 +9,7 @@ func _physics_process(delta):
 	
 	for c in colliders:
 		if c.name == 'Player':
-			get_parent().inc_ink()
+			print("collision") 
+			get_parent().get_parent().inc_ink()
 			queue_free()
 			
