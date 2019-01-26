@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Menu.gd" type="Script" id=1]
 [ext_resource path="res://Mur.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Control.tscn" type="PackedScene" id=4]
+[ext_resource path="res://tiles.tres" type="TileSet" id=5]
 
 [sub_resource type="Shader" id=1]
 
@@ -193,13 +194,53 @@ position = Vector2( 992, 160 )
 
 [node name="Mur7" parent="Murs" index="12" instance=ExtResource( 2 )]
 
-position = Vector2( 832, 32 )
+position = Vector2( 864, 32 )
 
 [node name="Player" parent="." index="2" instance=ExtResource( 3 )]
 
 position = Vector2( 416, 448 )
 
 [node name="Control" parent="." index="3" instance=ExtResource( 4 )]
+
+[node name="TileMap" type="TileMap" parent="." index="4"]
+
+mode = 0
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 64, 64 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray(  )
+
+[node name="TileMap2" type="TileMap" parent="." index="5"]
+
+mode = 0
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 64, 64 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray(  )
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Start" to="." method="_on_Start_pressed"]
 

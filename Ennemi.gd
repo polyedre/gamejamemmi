@@ -21,46 +21,32 @@ var velocity = Vector2()
 var direction = 0
 var facing_right = false
 
+
+var en_charge = false
+
+
 func _physics_process(delta):
 
-	print(player)
-	if (player):
-		var point_near = nav2D.get_closest_point(player.position)
-#	if Input.is_action_pressed("move_right"):
-#		velocity.x = min(velocity.x + HORIZONTAL_ACCELERATION,
-#		MOVE_SPEED)  
-#		direction = 1
-#		flip(1)
-#	elif Input.is_action_pressed("move_left"):
-#		velocity.x = max(velocity.x - HORIZONTAL_ACCELERATION,
-#		- MOVE_SPEED)
-#		direction = -1
-#		flip(-1)
-		if (player.position.x > position.x): flip(1)
-		elif (player.position.x < position.x): flip(-1)
-	
-		else:
-			velocity.x *= (abs(velocity.x) / MOVE_SPEED) * 0.95
-	
-		velocity = move_and_slide(point_near, Vector2(0, -1))
-	
-	var grounded = is_on_floor()
 	velocity.y += GRAVITY
-	if grounded and Input.is_action_just_pressed("jump"):
-		velocity.y = -JUMP_FORCE
-	if grounded and velocity.y >= 0:
-		velocity.y = 5
-	if velocity.y > MAX_FALL_SPEED:
-		velocity.y = MAX_FALL_SPEED
 
+	if not en_charge:
+		
+		# Perso vu à droite
+		if (player.position.x > position.x && anim.flip_h):
+			if abs(player.position.x - position.x) < 5000:
+				en_charge = true
+				velocity.x = MOVE_SPEED
+		
+		if (player.position.x < position.x && !anim.flip_h):
+			if abs(player.position.x - position.x) < 5000:
+				en_charge = true
+				velocity.x = -MOVE_SPEED
+		
+	else: # CHARGEEEEEEEEEZ !!
+		velocity = move_and_slide(velocity, Vector2(0, -1))
+		if not velocity.x:
+			en_charge = false
 
-#	if grounded:
-#		if move_dir == 0:
-	play_anim("idle")
-#		else:
-#			play_anim("walk")
-#	else:
-#		play_anim("jump")
 
 func flip(x):
 	if x == 1:
@@ -74,4 +60,3 @@ func play_anim(anim_name):
 	if anim.is_playing() and anim.animation == anim_name:
 		return
 	anim.play(anim_name)
-

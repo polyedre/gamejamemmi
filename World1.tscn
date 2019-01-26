@@ -12,13 +12,13 @@
 [ext_resource path="res://enemy_1.png" type="Texture" id=10]
 [ext_resource path="res://enemy_2.png" type="Texture" id=11]
 
-[sub_resource type="SegmentShape2D" id=7]
+[sub_resource type="SegmentShape2D" id=1]
 
 custom_solver_bias = 0.0
 a = Vector2( -0.104523, -34.2223 )
 b = Vector2( -0.101471, 198.779 )
 
-[sub_resource type="SpriteFrames" id=8]
+[sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
 "frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
@@ -27,17 +27,17 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
 extents = Vector2( 19, 19.1264 )
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=5]
 
 animations = [ {
 "frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
@@ -46,7 +46,7 @@ animations = [ {
 "speed": 3.0
 } ]
 
-[node name="World1" type="Node2D"]
+[node name="World1" type="Node2D" index="0"]
 
 [node name="Control" parent="." index="0" instance=ExtResource( 1 )]
 
@@ -61,9 +61,9 @@ editor/display_folded = true
 [node name="Sol Transparent" type="StaticBody2D" parent="Murs" index="0"]
 
 editor/display_folded = true
-position = Vector2( -979.525, 472.808 )
-rotation = -1.57079
-scale = Vector2( 0.0937632, 5.37967 )
+position = Vector2( -1587.17, 465.958 )
+rotation = -1.56701
+scale = Vector2( 0.16243, 24.4629 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -80,34 +80,11 @@ __meta__ = {
 position = Vector2( -45.7603, -32.0575 )
 rotation = 2.66491e-15
 scale = Vector2( 10.6652, 1.10095 )
-shape = SubResource( 7 )
+shape = SubResource( 1 )
 
-[node name="Sol Transparent2" type="StaticBody2D" parent="Murs" index="1"]
+[node name="Mur0" parent="Murs" index="1" instance=ExtResource( 3 )]
 
-editor/display_folded = true
-position = Vector2( -1344, 128 )
-scale = Vector2( 0.0937632, 5.37967 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Sol Transparent2" index="0"]
-
-position = Vector2( -45.7603, -32.0575 )
-rotation = 2.66491e-15
-scale = Vector2( 10.6652, 1.10095 )
-shape = SubResource( 7 )
-
-[node name="Mur0" parent="Murs" index="2" instance=ExtResource( 3 )]
-
-[node name="Mur1" type="StaticBody2D" parent="Murs" index="3"]
+[node name="Mur1" type="StaticBody2D" parent="Murs" index="2"]
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
@@ -129,17 +106,18 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "default"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur1" index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
-[node name="Mur2" type="StaticBody2D" parent="Murs" index="4"]
+[node name="Mur2" type="StaticBody2D" parent="Murs" index="3"]
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
@@ -161,17 +139,18 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "default"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur2" index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
-[node name="Mur3" type="StaticBody2D" parent="Murs" index="5"]
+[node name="Mur3" type="StaticBody2D" parent="Murs" index="4"]
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
@@ -193,18 +172,17 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "default"
-frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur3" index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
-[node name="Mur5" type="StaticBody2D" parent="Murs" index="6"]
+[node name="Mur5" type="StaticBody2D" parent="Murs" index="5"]
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
@@ -226,18 +204,18 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "default"
-frame = 2
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur5" index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
-[node name="Mur6" type="StaticBody2D" parent="Murs" index="7"]
+[node name="Mur6" type="StaticBody2D" parent="Murs" index="6"]
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
@@ -259,18 +237,18 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "default"
-frame = 1
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur6" index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
-[node name="Mur7" type="StaticBody2D" parent="Murs" index="8"]
+[node name="Mur7" type="StaticBody2D" parent="Murs" index="7"]
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
@@ -292,18 +270,18 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "default"
-frame = 1
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur7" index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
-[node name="Mur8" type="StaticBody2D" parent="Murs" index="9"]
+[node name="Mur8" type="StaticBody2D" parent="Murs" index="8"]
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
@@ -325,18 +303,18 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "default"
-frame = 1
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur8" index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
-[node name="Mur9" type="StaticBody2D" parent="Murs" index="10"]
+[node name="Mur9" type="StaticBody2D" parent="Murs" index="9"]
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
@@ -358,17 +336,18 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "default"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur9" index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
-[node name="Mur13" type="StaticBody2D" parent="Murs" index="11"]
+[node name="Mur13" type="StaticBody2D" parent="Murs" index="10"]
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
@@ -390,17 +369,18 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "default"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur13" index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
-[node name="Mur16" type="StaticBody2D" parent="Murs" index="12"]
+[node name="Mur16" type="StaticBody2D" parent="Murs" index="11"]
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
@@ -422,18 +402,17 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "default"
-frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur16" index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
-[node name="Mur20" type="StaticBody2D" parent="Murs" index="13"]
+[node name="Mur20" type="StaticBody2D" parent="Murs" index="12"]
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
@@ -455,18 +434,17 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "default"
-frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur20" index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
-[node name="Mur32" type="StaticBody2D" parent="Murs" index="14"]
+[node name="Mur32" type="StaticBody2D" parent="Murs" index="13"]
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
@@ -488,18 +466,17 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "default"
-frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur32" index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
-[node name="Mur35" type="StaticBody2D" parent="Murs" index="15"]
+[node name="Mur35" type="StaticBody2D" parent="Murs" index="14"]
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
@@ -521,18 +498,17 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "default"
-frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur35" index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
-[node name="Mur36" type="StaticBody2D" parent="Murs" index="16"]
+[node name="Mur36" type="StaticBody2D" parent="Murs" index="15"]
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
@@ -554,18 +530,17 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "default"
-frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur36" index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
-[node name="Mur38" type="StaticBody2D" parent="Murs" index="17"]
+[node name="Mur38" type="StaticBody2D" parent="Murs" index="16"]
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
@@ -587,18 +562,18 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "default"
-frame = 2
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur38" index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
-[node name="Mur40" type="StaticBody2D" parent="Murs" index="18"]
+[node name="Mur40" type="StaticBody2D" parent="Murs" index="17"]
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
@@ -620,18 +595,18 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "default"
-frame = 2
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur40" index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
-[node name="Mur43" type="StaticBody2D" parent="Murs" index="19"]
+[node name="Mur43" type="StaticBody2D" parent="Murs" index="18"]
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
@@ -653,18 +628,18 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "default"
-frame = 1
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur43" index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
-[node name="Mur44" type="StaticBody2D" parent="Murs" index="20"]
+[node name="Mur44" type="StaticBody2D" parent="Murs" index="19"]
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
@@ -686,17 +661,18 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "default"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur44" index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
-[node name="Mur10" type="StaticBody2D" parent="Murs" index="21"]
+[node name="Mur10" type="StaticBody2D" parent="Murs" index="20"]
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
@@ -718,17 +694,18 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "default"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur10" index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
-[node name="Mur18" type="StaticBody2D" parent="Murs" index="22"]
+[node name="Mur18" type="StaticBody2D" parent="Murs" index="21"]
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
@@ -750,17 +727,18 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "default"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur18" index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
-[node name="Mur22" type="StaticBody2D" parent="Murs" index="23"]
+[node name="Mur22" type="StaticBody2D" parent="Murs" index="22"]
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
@@ -782,17 +760,18 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "default"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur22" index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
-[node name="Mur12" type="StaticBody2D" parent="Murs" index="24"]
+[node name="Mur12" type="StaticBody2D" parent="Murs" index="23"]
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
@@ -814,17 +793,18 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "default"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur12" index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
-[node name="Mur17" type="StaticBody2D" parent="Murs" index="25"]
+[node name="Mur17" type="StaticBody2D" parent="Murs" index="24"]
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
@@ -846,18 +826,17 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "default"
-frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur17" index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
-[node name="Mur21" type="StaticBody2D" parent="Murs" index="26"]
+[node name="Mur21" type="StaticBody2D" parent="Murs" index="25"]
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
@@ -879,18 +858,17 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "default"
-frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur21" index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
-[node name="Mur33" type="StaticBody2D" parent="Murs" index="27"]
+[node name="Mur33" type="StaticBody2D" parent="Murs" index="26"]
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
@@ -912,18 +890,17 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "default"
-frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur33" index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
-[node name="Mur34" type="StaticBody2D" parent="Murs" index="28"]
+[node name="Mur34" type="StaticBody2D" parent="Murs" index="27"]
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
@@ -945,18 +922,17 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "default"
-frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur34" index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
-[node name="Mur37" type="StaticBody2D" parent="Murs" index="29"]
+[node name="Mur37" type="StaticBody2D" parent="Murs" index="28"]
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
@@ -978,18 +954,17 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "default"
-frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur37" index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
-[node name="Mur39" type="StaticBody2D" parent="Murs" index="30"]
+[node name="Mur39" type="StaticBody2D" parent="Murs" index="29"]
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
@@ -1011,18 +986,18 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "default"
-frame = 2
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur39" index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
-[node name="Mur41" type="StaticBody2D" parent="Murs" index="31"]
+[node name="Mur41" type="StaticBody2D" parent="Murs" index="30"]
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
@@ -1044,18 +1019,18 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "default"
-frame = 2
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur41" index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
-[node name="Mur42" type="StaticBody2D" parent="Murs" index="32"]
+[node name="Mur42" type="StaticBody2D" parent="Murs" index="31"]
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
@@ -1077,18 +1052,18 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "default"
-frame = 1
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur42" index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
-[node name="Mur45" type="StaticBody2D" parent="Murs" index="33"]
+[node name="Mur45" type="StaticBody2D" parent="Murs" index="32"]
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
@@ -1110,17 +1085,18 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "default"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur45" index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
-[node name="Mur46" type="StaticBody2D" parent="Murs" index="34"]
+[node name="Mur46" type="StaticBody2D" parent="Murs" index="33"]
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
@@ -1142,17 +1118,18 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "default"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur46" index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
-[node name="Mur47" type="StaticBody2D" parent="Murs" index="35"]
+[node name="Mur47" type="StaticBody2D" parent="Murs" index="34"]
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
@@ -1174,18 +1151,17 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "default"
-frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur47" index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
-[node name="Mur48" type="StaticBody2D" parent="Murs" index="36"]
+[node name="Mur48" type="StaticBody2D" parent="Murs" index="35"]
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
@@ -1207,18 +1183,18 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "default"
-frame = 2
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur48" index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
-[node name="Mur49" type="StaticBody2D" parent="Murs" index="37"]
+[node name="Mur49" type="StaticBody2D" parent="Murs" index="36"]
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
@@ -1240,18 +1216,18 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "default"
-frame = 2
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur49" index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
-[node name="Mur11" type="StaticBody2D" parent="Murs" index="38"]
+[node name="Mur11" type="StaticBody2D" parent="Murs" index="37"]
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
@@ -1273,17 +1249,18 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "default"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur11" index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
-[node name="Mur14" type="StaticBody2D" parent="Murs" index="39"]
+[node name="Mur14" type="StaticBody2D" parent="Murs" index="38"]
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
@@ -1305,18 +1282,17 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "default"
-frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur14" index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
-[node name="Mur15" type="StaticBody2D" parent="Murs" index="40"]
+[node name="Mur15" type="StaticBody2D" parent="Murs" index="39"]
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
@@ -1338,18 +1314,18 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "default"
-frame = 2
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur15" index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
-[node name="Mur23" type="StaticBody2D" parent="Murs" index="41"]
+[node name="Mur23" type="StaticBody2D" parent="Murs" index="40"]
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
@@ -1371,18 +1347,18 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "default"
-frame = 1
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur23" index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
-[node name="Mur24" type="StaticBody2D" parent="Murs" index="42"]
+[node name="Mur24" type="StaticBody2D" parent="Murs" index="41"]
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
@@ -1404,17 +1380,18 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "default"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur24" index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
-[node name="Mur25" type="StaticBody2D" parent="Murs" index="43"]
+[node name="Mur25" type="StaticBody2D" parent="Murs" index="42"]
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
@@ -1436,17 +1413,18 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "default"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur25" index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
-[node name="Mur26" type="StaticBody2D" parent="Murs" index="44"]
+[node name="Mur26" type="StaticBody2D" parent="Murs" index="43"]
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
@@ -1468,18 +1446,17 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "default"
-frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur26" index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
-[node name="Mur27" type="StaticBody2D" parent="Murs" index="45"]
+[node name="Mur27" type="StaticBody2D" parent="Murs" index="44"]
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
@@ -1501,18 +1478,17 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "default"
-frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur27" index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
-[node name="Mur28" type="StaticBody2D" parent="Murs" index="46"]
+[node name="Mur28" type="StaticBody2D" parent="Murs" index="45"]
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
@@ -1534,18 +1510,18 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "default"
-frame = 2
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur28" index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
-[node name="Mur29" type="StaticBody2D" parent="Murs" index="47"]
+[node name="Mur29" type="StaticBody2D" parent="Murs" index="46"]
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
@@ -1567,18 +1543,18 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "default"
-frame = 2
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur29" index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
-[node name="Mur30" type="StaticBody2D" parent="Murs" index="48"]
+[node name="Mur30" type="StaticBody2D" parent="Murs" index="47"]
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
@@ -1600,18 +1576,18 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "default"
-frame = 1
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur30" index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
-[node name="Mur31" type="StaticBody2D" parent="Murs" index="49"]
+[node name="Mur31" type="StaticBody2D" parent="Murs" index="48"]
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
@@ -1633,17 +1609,18 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "default"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur31" index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
-[node name="Mur19" type="StaticBody2D" parent="Murs" index="50"]
+[node name="Mur19" type="StaticBody2D" parent="Murs" index="49"]
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
@@ -1665,18 +1642,18 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "default"
-frame = 2
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur19" index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
-[node name="Mur4" type="StaticBody2D" parent="Murs" index="51"]
+[node name="Mur4" type="StaticBody2D" parent="Murs" index="50"]
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
@@ -1698,16 +1675,16 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 8 )
+frames = SubResource( 2 )
 animation = "default"
-frame = 2
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur4" index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 9 )
+shape = SubResource( 3 )
 
 [node name="Collectable" parent="." index="3" instance=ExtResource( 8 )]
 
@@ -1716,7 +1693,8 @@ next_scene = "res://World2.tscn"
 
 [node name="Ennemi" type="KinematicBody2D" parent="." index="4"]
 
-position = Vector2( -928, 320 )
+editor/display_folded = true
+position = Vector2( -1163.88, 171.905 )
 scale = Vector2( 0.875002, 3.1875 )
 input_pickable = false
 collision_layer = 1
@@ -1731,16 +1709,31 @@ __meta__ = {
 
 position = Vector2( -6.29877, -1.74816 )
 scale = Vector2( 3.06044, -3.15318 )
-shape = SubResource( 10 )
+shape = SubResource( 4 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Ennemi" index="1"]
 
 position = Vector2( 7.81445, -3.0215 )
 scale = Vector2( 0.285714, 0.0692209 )
-frames = SubResource( 2 )
+frames = SubResource( 5 )
 animation = "idle"
+frame = 1
 playing = true
 
 [node name="Navigation2D" type="Navigation2D" parent="Ennemi" index="2"]
+
+[node name="Piques" type="Node" parent="." index="5"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Piques" index="0"]
+
+position = Vector2( -128.75, 3.71708 )
+scale = Vector2( 5.02344, 4.27043 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
 
 
