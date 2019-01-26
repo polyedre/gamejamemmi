@@ -5,8 +5,11 @@ var _prev_mouse_pos = Vector2()
 var drawings = Array()
 var paint_texture = preload("res://paint.png")
 
-const PAINT_WIDTH = 5
+var available_paint
+var player
 
+const PAINT_WIDTH = 5
+const INITIAL_PAINT = 100
 
 
 class Drawing:
@@ -31,6 +34,8 @@ class Drawing:
 		return 0
 
 func _ready():
+	available_paint = INITIAL_PAINT
+	
 	var viewport = Viewport.new()
 	var rect = get_rect()
 	viewport.size = rect.size
@@ -65,8 +70,9 @@ func _process(delta):
 
 func _on_draw():
 	var mouse_pos = get_local_mouse_position()
-	if Input.is_mouse_button_pressed(BUTTON_LEFT):
+	if Input.is_mouse_button_pressed(BUTTON_LEFT) && available_paint > 0:
 		#_line_points.append(mouse_pos)
+		available_paint = available_paint-1
 		draw_segment(mouse_pos)
 
 	_prev_mouse_pos = mouse_pos
@@ -103,3 +109,8 @@ func create_collider(start, end, body):
 	shape.b = end
 	collider.set_shape(shape)
 	body.add_child(collider)
+	
+	
+func inc_ink():
+	print("incrementando")
+	available_paint = available_paint+25

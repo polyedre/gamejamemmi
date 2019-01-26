@@ -56,14 +56,3 @@ func play_anim(anim_name):
 	if anim_player.is_playing() and anim_player.current_animation == anim_name:
 		return
 	anim_player.play(anim_name)
-
- 
-func _on_Encre2_body_entered(body):
-	get_tree().change_scene('res://World2.tscn')
-
-func _on_Area2D_body_entered(body):
-	get_tree().quit()
-
-
-func _on_Collectable_body_entered(body):
-	pass # replace with function body
