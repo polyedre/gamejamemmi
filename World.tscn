@@ -14,7 +14,7 @@
 [ext_resource path="res://fourth_plat_tuto.png" type="Texture" id=12]
 [ext_resource path="res://second_plat_tuto.png" type="Texture" id=13]
 [ext_resource path="res://third_plat_tuto.png" type="Texture" id=14]
-[ext_resource path="res://InkBar.gd" type="Script" id=15]
+[ext_resource path="res://InkBar.tscn" type="PackedScene" id=15]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -60,7 +60,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="World" type="Node2D" index="0"]
+[node name="World" type="Node2D"]
 
 __meta__ = {
 "_edit_lock_": true
@@ -117,7 +117,7 @@ position = Vector2( 32.3699, 70.0353 )
 rotation = -0.20063
 frames = SubResource( 2 )
 animation = "default"
-frame = 2
+frame = 1
 playing = true
 
 [node name="Encre2" type="Area2D" parent="Control" index="1"]
@@ -146,7 +146,6 @@ position = Vector2( 32.3699, 70.0353 )
 rotation = -0.20063
 frames = SubResource( 2 )
 animation = "default"
-frame = 1
 playing = true
 
 [node name="Encre3" type="Area2D" parent="Control" index="2"]
@@ -175,6 +174,7 @@ position = Vector2( 32.3699, 70.0353 )
 rotation = -0.20063
 frames = SubResource( 2 )
 animation = "default"
+frame = 2
 playing = true
 
 [node name="Plateforme" type="StaticBody2D" parent="." index="2"]
@@ -206,7 +206,7 @@ position = Vector2( -1.16103, 9.05774 )
 scale = Vector2( 0.0172349, 0.0521886 )
 frames = SubResource( 4 )
 animation = "default"
-frame = 2
+frame = 3
 playing = true
 _sections_unfolded = [ "Pause" ]
 
@@ -239,7 +239,7 @@ position = Vector2( -1.16103, 9.05774 )
 scale = Vector2( 0.0172349, 0.0521886 )
 frames = SubResource( 4 )
 animation = "default"
-frame = 1
+frame = 2
 playing = true
 _sections_unfolded = [ "Pause" ]
 
@@ -272,7 +272,7 @@ position = Vector2( -1.16103, 9.05774 )
 scale = Vector2( 0.0172349, 0.0521886 )
 frames = SubResource( 4 )
 animation = "default"
-frame = 1
+frame = 2
 playing = true
 _sections_unfolded = [ "Pause" ]
 
@@ -305,7 +305,7 @@ position = Vector2( -1.16103, 9.05774 )
 scale = Vector2( 0.0172349, 0.0521886 )
 frames = SubResource( 4 )
 animation = "default"
-frame = 1
+frame = 2
 playing = true
 _sections_unfolded = [ "Pause" ]
 
@@ -337,7 +337,7 @@ position = Vector2( -29.0908, 0 )
 scale = Vector2( 0.454545, 0.338371 )
 frames = SubResource( 6 )
 animation = "default"
-frame = 2
+frame = 1
 playing = true
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="." index="7"]
@@ -368,7 +368,6 @@ position = Vector2( -29.0908, 0 )
 scale = Vector2( 0.454545, 0.338371 )
 frames = SubResource( 6 )
 animation = "default"
-frame = 1
 playing = true
 
 [node name="StaticBody2D5" type="StaticBody2D" parent="." index="8"]
@@ -399,7 +398,6 @@ position = Vector2( -29.0908, 0 )
 scale = Vector2( 0.454545, 0.338371 )
 frames = SubResource( 6 )
 animation = "default"
-frame = 1
 playing = true
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="." index="9"]
@@ -429,6 +427,7 @@ position = Vector2( -29.0908, 0 )
 scale = Vector2( 0.454545, 0.338371 )
 frames = SubResource( 6 )
 animation = "default"
+frame = 3
 playing = true
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="." index="10"]
@@ -458,32 +457,10 @@ position = Vector2( -29.0908, 0 )
 scale = Vector2( 0.454545, 0.338371 )
 frames = SubResource( 6 )
 animation = "default"
-frame = 3
+frame = 2
 playing = true
 
-[node name="InkBar" type="ProgressBar" parent="." index="11"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 1020.0
-margin_bottom = 16.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 0
-min_value = 0.0
-max_value = 100.0
-step = 1.0
-page = 0.0
-value = 50.0
-exp_edit = false
-rounded = false
-percent_visible = true
-script = ExtResource( 15 )
+[node name="InkBar" parent="." index="11" instance=ExtResource( 15 )]
 
 [connection signal="body_entered" from="Control/Encre" to="Player" method="_on_Encre_body_entered"]
 
