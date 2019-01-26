@@ -1,0 +1,208 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Menu.gd" type="Script" id=1]
+[ext_resource path="res://Mur.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Control.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Shader" id=1]
+
+code = ""
+
+[sub_resource type="ShaderMaterial" id=2]
+
+render_priority = 0
+shader = SubResource( 1 )
+
+[sub_resource type="Theme" id=3]
+
+
+[node name="Menu" type="Control"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+use_top_left = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" index="0"]
+
+material = SubResource( 2 )
+use_parent_material = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 466.0
+margin_top = 269.0
+margin_right = 557.0
+margin_bottom = 331.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 1
+_sections_unfolded = [ "Material" ]
+
+[node name="Title" type="Label" parent="CenterContainer/VBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 91.0
+margin_bottom = 14.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Draumation"
+align = 1
+valign = 1
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "custom_fonts" ]
+
+[node name="Start" type="Button" parent="CenterContainer/VBoxContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 18.0
+margin_right = 91.0
+margin_bottom = 38.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = SubResource( 3 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Start"
+flat = false
+align = 1
+_sections_unfolded = [ "Theme" ]
+
+[node name="Exit" type="Button" parent="CenterContainer/VBoxContainer" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 42.0
+margin_right = 91.0
+margin_bottom = 62.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Exit"
+flat = false
+align = 1
+
+[node name="Murs" type="Node" parent="." index="1"]
+
+editor/display_folded = true
+
+[node name="Mur0" parent="Murs" index="0" instance=ExtResource( 2 )]
+
+position = Vector2( 160, 544 )
+
+[node name="Mur1" parent="Murs" index="1" instance=ExtResource( 2 )]
+
+position = Vector2( 480, 544 )
+
+[node name="Mur2" parent="Murs" index="2" instance=ExtResource( 2 )]
+
+position = Vector2( 32, 416 )
+
+[node name="Mur8" parent="Murs" index="3" instance=ExtResource( 2 )]
+
+position = Vector2( -32, 288 )
+
+[node name="Mur9" parent="Murs" index="4" instance=ExtResource( 2 )]
+
+position = Vector2( 32, 160 )
+
+[node name="Mur10" parent="Murs" index="5" instance=ExtResource( 2 )]
+
+position = Vector2( 160, 32 )
+
+[node name="Mur11" parent="Murs" index="6" instance=ExtResource( 2 )]
+
+position = Vector2( 384, -96 )
+
+[node name="Mur12" parent="Murs" index="7" instance=ExtResource( 2 )]
+
+position = Vector2( 704, -96 )
+
+[node name="Mur3" parent="Murs" index="8" instance=ExtResource( 2 )]
+
+position = Vector2( 800, 544 )
+
+[node name="Mur4" parent="Murs" index="9" instance=ExtResource( 2 )]
+
+position = Vector2( 960, 416 )
+
+[node name="Mur5" parent="Murs" index="10" instance=ExtResource( 2 )]
+
+position = Vector2( 1120, 288 )
+
+[node name="Mur6" parent="Murs" index="11" instance=ExtResource( 2 )]
+
+position = Vector2( 992, 160 )
+
+[node name="Mur7" parent="Murs" index="12" instance=ExtResource( 2 )]
+
+position = Vector2( 832, 32 )
+
+[node name="Player" parent="." index="2" instance=ExtResource( 3 )]
+
+position = Vector2( 416, 448 )
+
+[node name="Control" parent="." index="3" instance=ExtResource( 4 )]
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Start" to="." method="_on_Start_pressed"]
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Exit" to="." method="_on_Exit_pressed"]
+
+

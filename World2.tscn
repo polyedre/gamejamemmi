@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Collectable.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Mur.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Control.tscn" type="PackedScene" id=4]
+
+[node name="World2" type="Node"]
+
+[node name="Player" parent="." index="0" instance=ExtResource( 1 )]
+
+position = Vector2( 384, 352 )
+
+[node name="Collectable" parent="." index="1" instance=ExtResource( 2 )]
+
+next_scene = "res://World1.tscn"
+
+[node name="Murs" type="Node" parent="." index="2"]
+
+[node name="Mur0" parent="Murs" index="0" instance=ExtResource( 3 )]
+
+editor/display_folded = false
+
+[node name="Mur1" parent="Murs" index="1" instance=ExtResource( 3 )]
+
+editor/display_folded = false
+position = Vector2( 288, 544 )
+
+[node name="Mur2" parent="Murs" index="2" instance=ExtResource( 3 )]
+
+editor/display_folded = false
+position = Vector2( 608, 544 )
+
+[node name="Mur3" parent="Murs" index="3" instance=ExtResource( 3 )]
+
+editor/display_folded = false
+position = Vector2( 928, 544 )
+
+[node name="Control" parent="." index="3" instance=ExtResource( 4 )]
+
+

@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Ennemi.gd" type="Script" id=1]
+[ext_resource path="res://enemy_1.png" type="Texture" id=2]
+[ext_resource path="res://enemy_2.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "idle",
+"speed": 3.0
+} ]
+
+[node name="KinematicBody2D" type="KinematicBody2D" index="0"]
+
+position = Vector2( 1424.93, 779.769 )
+scale = Vector2( 3.5, 14.5 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+
+position = Vector2( -6.29877, -1.74816 )
+scale = Vector2( 3.06044, -3.15318 )
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
+
+position = Vector2( 7.81445, -3.0215 )
+scale = Vector2( 0.285714, 0.0692209 )
+frames = SubResource( 2 )
+animation = "idle"
+playing = true
+
+[node name="Navigation2D" type="Navigation2D" parent="." index="2"]
+
+
