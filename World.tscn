@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Control.gd" type="Script" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://ink.png" type="Texture" id=11]
 [ext_resource path="res://ink_2.png" type="Texture" id=12]
 [ext_resource path="res://ink_3.png" type="Texture" id=13]
+[ext_resource path="res://tiles.tres" type="TileSet" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -245,7 +246,7 @@ position = Vector2( -29.0908, 0 )
 scale = Vector2( 0.454545, 0.338371 )
 frames = SubResource( 4 )
 animation = "default"
-frame = 1
+frame = 3
 playing = true
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="." index="7"]
@@ -276,6 +277,7 @@ position = Vector2( -29.0908, 0 )
 scale = Vector2( 0.454545, 0.338371 )
 frames = SubResource( 4 )
 animation = "default"
+frame = 2
 playing = true
 
 [node name="StaticBody2D5" type="StaticBody2D" parent="." index="8"]
@@ -306,6 +308,7 @@ position = Vector2( -29.0908, 0 )
 scale = Vector2( 0.454545, 0.338371 )
 frames = SubResource( 4 )
 animation = "default"
+frame = 2
 playing = true
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="." index="9"]
@@ -335,7 +338,7 @@ position = Vector2( -29.0908, 0 )
 scale = Vector2( 0.454545, 0.338371 )
 frames = SubResource( 4 )
 animation = "default"
-frame = 3
+frame = 1
 playing = true
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="." index="10"]
@@ -365,7 +368,6 @@ position = Vector2( -29.0908, 0 )
 scale = Vector2( 0.454545, 0.338371 )
 frames = SubResource( 4 )
 animation = "default"
-frame = 2
 playing = true
 
 [node name="Encre" type="StaticBody2D" parent="." index="11"]
@@ -459,5 +461,25 @@ rotation = -0.20063
 frames = SubResource( 6 )
 animation = "default"
 playing = true
+
+[node name="TileMap" type="TileMap" parent="." index="14"]
+
+mode = 0
+tile_set = ExtResource( 14 )
+cell_size = Vector2( 64, 64 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 65548, 0, 0, 65549, 0, 0, 65550, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 393216, 0, 0 )
 
 
