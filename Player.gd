@@ -1,11 +1,10 @@
 extends KinematicBody2D
 
-const MOVE_SPEED = 500
+const MOVE_SPEED = 600
 const JUMP_FORCE = 1000
 const GRAVITY = 50
 const MAX_FALL_SPEED = 1000
-const HORIZONTAL_SPEED_LIMIT = 1000
-const HORIZONTAL_ACCELERATION = 20
+const HORIZONTAL_ACCELERATION = 80
 const HORIZONTAL_FRICTION = 0.95
 
 onready var anim_player = $AnimationPlayer
@@ -19,16 +18,17 @@ func _physics_process(delta):
 	var move_dir = 0
 	if Input.is_action_pressed("move_right"):
 		velocity.x = min(velocity.x + HORIZONTAL_ACCELERATION,
-		HORIZONTAL_SPEED_LIMIT)  
+		MOVE_SPEED)  
 		move_dir = 1
-	if Input.is_action_pressed("move_left"):
+	elif Input.is_action_pressed("move_left"):
 		velocity.x = max(velocity.x - HORIZONTAL_ACCELERATION,
-		- HORIZONTAL_SPEED_LIMIT)
+		- MOVE_SPEED)
 		move_dir = -1
 	
-	velocity.x *= HORIZONTAL_FRICTION
+	else:
+		velocity.x *= (abs(velocity.x) / MOVE_SPEED) * 0.95
 	
-	move_and_slide(velocity)
+	velocity = move_and_slide(velocity, Vector2(0, -1))
 	
 	var grounded = is_on_floor()
 	velocity.y += GRAVITY
@@ -38,16 +38,7 @@ func _physics_process(delta):
 		velocity.y = 5
 	if velocity.y > MAX_FALL_SPEED:
 		velocity.y = MAX_FALL_SPEED
-	
-	if is_on_wall() and not is_on_floor(): #Collé à un mur
-		velocity = Vector2(0,0)
-		if Input.is_action_pressed("jump"):
-			if velocity.x > 0:
-				velocity = Vector2(-1000, -1000)
-				print(">")
-			else:
-				print("<")
-				velocity = Vector2(1000, -1000)
+
 
 	if grounded:
 		if move_dir == 0:
@@ -65,3 +56,14 @@ func play_anim(anim_name):
 	if anim_player.is_playing() and anim_player.current_animation == anim_name:
 		return
 	anim_player.play(anim_name)
+
+ 
+func _on_Encre2_body_entered(body):
+	get_tree().change_scene('res://World2.tscn')
+
+func _on_Area2D_body_entered(body):
+	get_tree().quit()
+
+
+func _on_Collectable_body_entered(body):
+	pass # replace with function body
