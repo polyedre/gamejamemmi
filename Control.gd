@@ -1,5 +1,10 @@
 extends Control
 
+onready var inkbar = get_parent().get_node('InkBar')
+func updateInkbar():
+	var percentage = (float(available_paint) / INITIAL_PAINT) * 100
+	inkbar.value = percentage
+
 var _pen = null
 var _prev_mouse_pos = Vector2()
 var drawings = Array()
@@ -10,7 +15,6 @@ var player
 
 const PAINT_WIDTH = 5
 const INITIAL_PAINT = 100
-
 
 class Drawing:
 
@@ -32,9 +36,10 @@ class Drawing:
 			root.remove_child(line)
 			return 1
 		return 0
-
+	
 func _ready():
 	available_paint = INITIAL_PAINT
+	updateInkbar()
 	
 	var viewport = Viewport.new()
 	var rect = get_rect()
@@ -73,6 +78,7 @@ func _on_draw():
 	if Input.is_mouse_button_pressed(BUTTON_LEFT) && available_paint > 0:
 		#_line_points.append(mouse_pos)
 		available_paint = available_paint-1
+		updateInkbar()
 		draw_segment(mouse_pos)
 
 	_prev_mouse_pos = mouse_pos
@@ -114,3 +120,4 @@ func create_collider(start, end, body):
 func inc_ink():
 	print("incrementando")
 	available_paint = available_paint+25
+	updateInkbar()
