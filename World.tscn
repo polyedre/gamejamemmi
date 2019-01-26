@@ -1,65 +1,337 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://tiles.tres" type="TileSet" id=1]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Camera2D.gd" type="Script" id=3]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://first_plat_tuto_spike.png" type="Texture" id=2]
+[ext_resource path="res://fourth_plat_tuto_spike.png" type="Texture" id=3]
+[ext_resource path="res://second_plat_tuto_spike.png" type="Texture" id=4]
+[ext_resource path="res://third_plat_tuto_spike.png" type="Texture" id=5]
+[ext_resource path="res://first_plat_tuto.png" type="Texture" id=6]
+[ext_resource path="res://fourth_plat_tuto.png" type="Texture" id=7]
+[ext_resource path="res://second_plat_tuto.png" type="Texture" id=8]
+[ext_resource path="res://third_plat_tuto.png" type="Texture" id=9]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 19.5753 )
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 4.0
+} ]
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 290.909, 58.1818 )
+
+[sub_resource type="SpriteFrames" id=4]
+
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [node name="World" type="Node2D" index="0"]
 
-_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="TileMap" type="TileMap" parent="." index="0"]
+[node name="Player" parent="." index="0" instance=ExtResource( 1 )]
 
-position = Vector2( -22.3337, 185.899 )
-mode = 0
-tile_set = ExtResource( 1 )
-cell_size = Vector2( 64, 64 )
-cell_quadrant_size = 16
-cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-cell_half_offset = 2
-cell_tile_origin = 0
-cell_y_sort = false
-cell_clip_uv = false
-collision_use_kinematic = false
-collision_friction = 1.0
-collision_bounce = 0.0
+position = Vector2( 160, 170 )
+rotation = 0.11389
+
+[node name="Plateforme" type="StaticBody2D" parent="." index="1"]
+
+editor/display_folded = true
+position = Vector2( 580, 500 )
+scale = Vector2( 0.34375, 0.34375 )
+input_pickable = false
 collision_layer = 1
 collision_mask = 1
-occluder_light_mask = 1
-format = 1
-tile_data = PoolIntArray( 262150, 0, 0, 262151, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327684, 0, 0, 327686, 1, 0, 327690, 0, 0, 327691, 0, 0, 393216, 1, 0, 393217, 1, 0, 393218, 1, 0, 393220, 0, 0, 458752, 1, 0, 458753, 1, 0, 458754, 1, 0, 458767, 0, 0, 458768, 0, 0, 458769, 0, 0, 524288, 1, 0, 524289, 1, 0, 524290, 1, 0, 524303, 1, 0, 524304, 1, 0, 524305, 1, 0, 589824, 1, 0, 589825, 1, 0, 589826, 1, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589839, 1, 0, 589840, 1, 0, 589841, 1, 0, 655360, 1, 0, 655361, 1, 0, 655362, 1, 0, 655363, 1, 0, 655364, 1, 0, 655365, 1, 0, 655375, 1, 0, 655376, 1, 0, 655377, 1, 0, 720896, 1, 0, 720897, 1, 0, 720898, 1, 0, 720899, 1, 0, 720900, 1, 0, 720901, 1, 0, 720902, 0, 0, 720903, 0, 0, 720904, 0, 0, 720905, 0, 0, 720906, 0, 0, 720907, 0, 0, 720908, 0, 0, 720909, 0, 0, 720910, 0, 0, 720911, 1, 0, 720912, 1, 0, 720913, 1, 0, 786432, 1, 0, 786433, 1, 0, 786434, 1, 0, 786435, 1, 0, 786436, 1, 0, 786437, 1, 0, 786438, 1, 0, 786439, 1, 0, 786440, 1, 0, 786441, 1, 0, 786442, 1, 0, 786443, 1, 0, 786444, 1, 0, 786445, 1, 0, 786446, 1, 0, 786447, 1, 0, 786448, 1, 0, 786449, 1, 0, 851968, 1, 0, 851969, 1, 0, 851970, 1, 0, 851971, 1, 0, 851972, 1, 0, 851973, 1, 0, 851974, 1, 0, 851975, 1, 0, 851976, 1, 0, 851977, 1, 0, 851978, 1, 0, 851979, 1, 0, 851980, 1, 0, 851981, 1, 0, 851982, 1, 0, 851983, 1, 0, 851984, 1, 0, 851985, 1, 0 )
-_sections_unfolded = [ "Cell", "Transform" ]
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="Player" parent="." index="1" instance=ExtResource( 2 )]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plateforme" index="0"]
 
-position = Vector2( 559.96, 282.695 )
-_sections_unfolded = [ "Collision", "Material", "Pause", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]
+position = Vector2( -116.364, 29.0909 )
+scale = Vector2( 27.5, 5.56115 )
+shape = SubResource( 2 )
 
-[node name="Camera2D" type="Camera2D" parent="Player" index="4"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Plateforme/CollisionShape2D" index="0"]
 
-anchor_mode = 1
-rotating = false
-current = false
-zoom = Vector2( 1, 1 )
-limit_left = -10000000
-limit_top = -10000000
-limit_right = 10000000
-limit_bottom = 10000000
-limit_smoothed = false
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
-smoothing_enabled = false
-smoothing_speed = 5.0
-offset_v = 0.0
-offset_h = 0.0
-drag_margin_left = 0.2
-drag_margin_top = 0.2
-drag_margin_right = 0.2
-drag_margin_bottom = 0.2
-editor_draw_screen = true
-editor_draw_limits = false
-editor_draw_drag_margin = false
-script = ExtResource( 3 )
-_sections_unfolded = [ "Offset" ]
+pause_mode = 1
+position = Vector2( -1.16103, 9.05774 )
+scale = Vector2( 0.0172349, 0.0521886 )
+frames = SubResource( 1 )
+animation = "default"
+frame = 2
+playing = true
+_sections_unfolded = [ "Pause" ]
+
+[node name="Plateforme2" type="StaticBody2D" parent="." index="2"]
+
+editor/display_folded = true
+position = Vector2( 310, 510 )
+scale = Vector2( 0.34375, 0.34375 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plateforme2" index="0"]
+
+position = Vector2( -116.364, 29.0909 )
+scale = Vector2( 27.5, 5.56115 )
+shape = SubResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Plateforme2/CollisionShape2D" index="0"]
+
+pause_mode = 1
+position = Vector2( -1.16103, 9.05774 )
+scale = Vector2( 0.0172349, 0.0521886 )
+frames = SubResource( 1 )
+animation = "default"
+frame = 2
+playing = true
+_sections_unfolded = [ "Pause" ]
+
+[node name="Plateforme4" type="StaticBody2D" parent="." index="3"]
+
+editor/display_folded = true
+position = Vector2( 310, 510 )
+scale = Vector2( 0.34375, 0.34375 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plateforme4" index="0"]
+
+position = Vector2( -116.364, 29.0909 )
+scale = Vector2( 27.5, 5.56115 )
+shape = SubResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Plateforme4/CollisionShape2D" index="0"]
+
+pause_mode = 1
+position = Vector2( -1.16103, 9.05774 )
+scale = Vector2( 0.0172349, 0.0521886 )
+frames = SubResource( 1 )
+animation = "default"
+frame = 1
+playing = true
+_sections_unfolded = [ "Pause" ]
+
+[node name="Plateforme3" type="StaticBody2D" parent="." index="4"]
+
+editor/display_folded = true
+position = Vector2( 920, 530 )
+scale = Vector2( 0.34375, 0.34375 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plateforme3" index="0"]
+
+position = Vector2( -116.364, 29.0909 )
+scale = Vector2( 27.5, 5.56115 )
+shape = SubResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Plateforme3/CollisionShape2D" index="0"]
+
+pause_mode = 1
+position = Vector2( -1.16103, 9.05774 )
+scale = Vector2( 0.0172349, 0.0521886 )
+frames = SubResource( 1 )
+animation = "default"
+frame = 1
+playing = true
+_sections_unfolded = [ "Pause" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="5"]
+
+editor/display_folded = true
+position = Vector2( 179, 278 )
+rotation = -2.71991
+scale = Vector2( 0.34375, 0.34375 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+
+position = Vector2( 0, 58.1818 )
+shape = SubResource( 3 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="StaticBody2D/CollisionShape2D" index="0"]
+
+position = Vector2( -29.0908, 0 )
+scale = Vector2( 0.454545, 0.338371 )
+frames = SubResource( 4 )
+animation = "default"
+playing = true
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." index="6"]
+
+editor/display_folded = true
+position = Vector2( 460, 300 )
+rotation = -0.0797351
+scale = Vector2( 0.34375, 0.34375 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" index="0"]
+
+position = Vector2( 0, 58.1818 )
+shape = SubResource( 3 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="StaticBody2D2/CollisionShape2D" index="0"]
+
+position = Vector2( -29.0908, 0 )
+scale = Vector2( 0.454545, 0.338371 )
+frames = SubResource( 4 )
+animation = "default"
+frame = 3
+playing = true
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="." index="7"]
+
+editor/display_folded = true
+position = Vector2( 638, 145 )
+rotation = -0.76818
+scale = Vector2( 0.34375, 0.34375 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5" index="0"]
+
+position = Vector2( 0, 58.1818 )
+shape = SubResource( 3 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="StaticBody2D5/CollisionShape2D" index="0"]
+
+position = Vector2( -29.0908, 0 )
+scale = Vector2( 0.454545, 0.338371 )
+frames = SubResource( 4 )
+animation = "default"
+frame = 3
+playing = true
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." index="8"]
+
+editor/display_folded = true
+position = Vector2( 690, 360 )
+scale = Vector2( 0.34375, 0.34375 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" index="0"]
+
+position = Vector2( 0, 58.1818 )
+shape = SubResource( 3 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="StaticBody2D3/CollisionShape2D" index="0"]
+
+position = Vector2( -29.0908, 0 )
+scale = Vector2( 0.454545, 0.338371 )
+frames = SubResource( 4 )
+animation = "default"
+frame = 2
+playing = true
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." index="9"]
+
+editor/display_folded = true
+position = Vector2( 880, 310 )
+scale = Vector2( 0.34375, 0.34375 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" index="0"]
+
+position = Vector2( 0, 58.1818 )
+shape = SubResource( 3 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="StaticBody2D4/CollisionShape2D" index="0"]
+
+position = Vector2( -29.0908, 0 )
+scale = Vector2( 0.454545, 0.338371 )
+frames = SubResource( 4 )
+animation = "default"
+frame = 2
+playing = true
 
 
