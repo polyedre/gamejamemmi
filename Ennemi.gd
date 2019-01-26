@@ -15,7 +15,7 @@ func _ready():
 	player = get_node("../Player")
 	nav2D = get_node("Navigation2D")
 	
-	print_tree()
+	#print_tree()
 	
 var velocity = Vector2()
 var direction = 0
@@ -23,7 +23,7 @@ var facing_right = false
 
 func _physics_process(delta):
 
-	print(player)
+	#print(player)
 	if (player):
 		var point_near = nav2D.get_closest_point(player.position)
 #	if Input.is_action_pressed("move_right"):
