@@ -91,6 +91,7 @@ func _on_draw():
 		if inkbar:
 			updateInkbar()
 		draw_segment(mouse_pos)
+		
 
 	_prev_mouse_pos = mouse_pos
 
@@ -132,3 +133,4 @@ func inc_ink():
 	available_paint = min(INITIAL_PAINT, available_paint+25)
 	if inkbar:
 		updateInkbar()
+

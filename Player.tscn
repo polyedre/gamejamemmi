@@ -1,15 +1,16 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://perso_1.png" type="Texture" id=2]
 [ext_resource path="res://perso-2.png" type="Texture" id=3]
+[ext_resource path="res://perso_jump.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 40.4859 )
 
-[sub_resource type="ParticlesMaterial" id=3]
+[sub_resource type="ParticlesMaterial" id=2]
 
 render_priority = 0
 trail_divisor = 1
@@ -49,12 +50,22 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Animation", "Color", "Emission Shape", "Trail" ]
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=3]
 
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "walk",
 "speed": 5.0
 } ]
 
@@ -117,7 +128,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 1
-process_material = SubResource( 3 )
+process_material = SubResource( 2 )
 texture = null
 normal_map = null
 h_frames = 1
@@ -127,7 +138,7 @@ _sections_unfolded = [ "Drawing", "Process Material", "Textures" ]
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="3"]
 
 scale = Vector2( 0.0904614, 0.0904614 )
-frames = SubResource( 4 )
+frames = SubResource( 3 )
 animation = "idle"
 frame = 1
 playing = true

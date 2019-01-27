@@ -4,6 +4,9 @@ extends Control
 
 func _on_Start_pressed():
 	yield(get_tree().create_timer(0.1), "timeout")
+	var terrain = get_node("Murs/Mur1/CollisionShape2D")
+	terrain.queue_free()
+	yield(get_tree().create_timer(1), "timeout")
 	get_tree().change_scene('res://World1.tscn')
 
 	

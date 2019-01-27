@@ -8,6 +8,7 @@ const HORIZONTAL_ACCELERATION = 80
 const HORIZONTAL_FRICTION = 0.95
 
 onready var sprite = $AnimatedSprite
+#onready var sprite = $Sprite
 
 var velocity = Vector2()
 var facing_right = false
@@ -18,10 +19,12 @@ func _physics_process(delta):
 	if Input.is_action_pressed("move_right"):
 		velocity.x = min(velocity.x + HORIZONTAL_ACCELERATION,
 		MOVE_SPEED)  
+		move_dir = 1
 		flip(1)
 	elif Input.is_action_pressed("move_left"):
 		velocity.x = max(velocity.x - HORIZONTAL_ACCELERATION,
 		- MOVE_SPEED)
+		move_dir = -1
 		flip(-1)
 	
 	else:
@@ -44,6 +47,7 @@ func _physics_process(delta):
 			play_anim("idle")
 		else:
 			play_anim("walk")
+			print("walking")
 	else:
 		play_anim("jump")
 
