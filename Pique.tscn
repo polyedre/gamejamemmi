@@ -1,0 +1,113 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Pique.gd" type="Script" id=1]
+[ext_resource path="res://first_plat_tuto.png" type="Texture" id=2]
+[ext_resource path="res://fourth_plat_tuto.png" type="Texture" id=3]
+[ext_resource path="res://second_plat_tuto.png" type="Texture" id=4]
+[ext_resource path="res://third_plat_tuto.png" type="Texture" id=5]
+[ext_resource path="res://first_plat_tuto_spike.png" type="Texture" id=6]
+[ext_resource path="res://fourth_plat_tuto_spike.png" type="Texture" id=7]
+[ext_resource path="res://second_plat_tuto_spike.png" type="Texture" id=8]
+[ext_resource path="res://third_plat_tuto_spike.png" type="Texture" id=9]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 19, 19.1264 )
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "spiked",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10.1495, 10 )
+
+[node name="Pique" type="StaticBody2D" index="0"]
+
+modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
+position = Vector2( -32, 544 )
+scale = Vector2( 5, 2 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 1 )
+_sections_unfolded = [ "Visibility" ]
+state = 0
+
+[node name="Regular" type="CollisionShape2D" parent="." index="0"]
+
+position = Vector2( 0.0977631, -0.106354 )
+scale = Vector2( 1.68747, 1.67893 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Clickable" type="Area2D" parent="." index="1"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Clickable" index="0"]
+
+position = Vector2( 0.0977631, -0.106354 )
+scale = Vector2( 1.68747, 1.67893 )
+shape = SubResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="2"]
+
+position = Vector2( -2.16795, 8.3754 )
+scale = Vector2( 0.055073, 0.164423 )
+frames = SubResource( 1 )
+animation = "default"
+frame = 2
+playing = true
+
+[node name="Spikes" type="Area2D" parent="." index="3"]
+
+position = Vector2( 0, -42.3218 )
+scale = Vector2( 1, 0.380568 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes" index="0"]
+
+position = Vector2( 0.293121, 10.6874 )
+scale = Vector2( 2.42191, 1.86386 )
+shape = SubResource( 3 )
+
+[connection signal="input_event" from="Clickable" to="." method="_on_Area2D_input_event"]
+
+[connection signal="mouse_entered" from="Clickable" to="." method="_on_Area2D_mouse_entered"]
+
+[connection signal="mouse_exited" from="Clickable" to="." method="_on_Area2D_mouse_exited"]
+
+[connection signal="body_entered" from="Spikes" to="." method="_on_Spikes_body_entered"]
+
+[connection signal="body_exited" from="Spikes" to="." method="_on_Spikes_body_exited"]
+
+
