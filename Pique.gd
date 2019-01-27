@@ -20,7 +20,7 @@ func _ready():
 
 
 func _on_Area2D_input_event(viewport, event, shape_idx):
-	if Input.is_mouse_button_pressed(BUTTON_LEFT):
+	if Input.is_mouse_button_pressed(BUTTON_RIGHT):
 		state = 1-state
 		if (state == 0):
 			sprite.play("default")

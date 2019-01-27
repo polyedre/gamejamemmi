@@ -142,7 +142,6 @@ _sections_unfolded = [ "Drawing", "Process Material", "Textures" ]
 scale = Vector2( 0.0904614, 0.0904614 )
 frames = SubResource( 3 )
 animation = "idle"
-frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 

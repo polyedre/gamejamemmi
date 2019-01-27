@@ -13,6 +13,8 @@ onready var sprite = $AnimatedSprite
 var velocity = Vector2()
 var facing_right = false
 
+var time_falling = 0
+
 
 func _physics_process(delta):
 	var move_dir = 0
@@ -48,7 +50,9 @@ func _physics_process(delta):
 		else:
 			play_anim("walk")
 	else:
-		play_anim("jump")
+		time_falling += 1
+		if time_falling > 12:
+			play_anim("jump")
 
 func flip(x):
 	if x==1:

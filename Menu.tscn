@@ -194,6 +194,7 @@ position = Vector2( 116.903, 53.823 )
 scale = Vector2( 0.187888, 0.18594 )
 frames = SubResource( 2 )
 animation = "default"
+frame = 1
 playing = true
 __meta__ = {
 "_edit_group_": true
@@ -233,6 +234,7 @@ position = Vector2( 111.597, 49.5764 )
 scale = Vector2( 0.174206, 0.18022 )
 frames = SubResource( 3 )
 animation = "default"
+frame = 1
 playing = true
 __meta__ = {
 "_edit_group_": true

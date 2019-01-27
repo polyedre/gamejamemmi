@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Ennemi.gd" type="Script" id=1]
 [ext_resource path="res://enemy_1.png" type="Texture" id=2]
 [ext_resource path="res://enemy_2.png" type="Texture" id=3]
-[ext_resource path="res://enemy_picked_1.png" type="Texture" id=4]
-[ext_resource path="res://enemy_picked_2.png" type="Texture" id=5]
+[ext_resource path="res://enemy_walk_1.png" type="Texture" id=4]
+[ext_resource path="res://enemy_walk_2.png" type="Texture" id=5]
+[ext_resource path="res://enemy_picked_1.png" type="Texture" id=6]
+[ext_resource path="res://enemy_picked_2.png" type="Texture" id=7]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -15,6 +17,11 @@ animations = [ {
 "speed": 3.0
 }, {
 "frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "grabbed",
 "speed": 5.0
@@ -30,7 +37,7 @@ extents = Vector2( 10, 14.3741 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Enemi" type="KinematicBody2D" index="0"]
+[node name="Enemi" type="KinematicBody2D"]
 
 position = Vector2( 1596.71, 876.686 )
 scale = Vector2( 3.5, 14.0389 )
