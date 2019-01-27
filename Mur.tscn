@@ -5,7 +5,7 @@
 [ext_resource path="res://second_plat_tuto.png" type="Texture" id=3]
 [ext_resource path="res://third_plat_tuto.png" type="Texture" id=4]
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
 "frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
@@ -14,7 +14,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 19, 19.1264 )
@@ -41,14 +41,15 @@ __meta__ = {
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 4 )
+frames = SubResource( 1 )
 animation = "default"
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 5 )
+shape = SubResource( 2 )
 
 

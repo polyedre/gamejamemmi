@@ -47,7 +47,6 @@ func _physics_process(delta):
 			play_anim("idle")
 		else:
 			play_anim("walk")
-			print("walking")
 	else:
 		play_anim("jump")
 
