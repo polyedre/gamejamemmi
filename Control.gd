@@ -15,7 +15,6 @@ const INITIAL_PAINT = 100
 const INK_TIME = 120
 
 class Drawing:
-
 	var body
 	var ttl
 	var line
@@ -73,19 +72,13 @@ func _ready():
 
 
 func _process(delta):
-	
-	
 	if inkbar:
 		updateInkbar()
-		
 	_pen.update()
 
 	for d in drawings:
 		if d.decTime() == 1:
 			drawings.erase(d)
-
-
-
 
 func _on_draw():
 	var mouse_pos = get_local_mouse_position()
