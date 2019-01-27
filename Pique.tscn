@@ -34,7 +34,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 10.1495, 10 )
 
-[node name="Pique" type="StaticBody2D" index="0"]
+[node name="Pique" type="StaticBody2D"]
 
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
 position = Vector2( -32, 544 )

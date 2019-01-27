@@ -14,6 +14,8 @@ func _ready():
 	# Initialization here
 	sprite = get_node("AnimatedSprite")
 	shape = get_node("Regular")
+	if state == 1:
+		sprite.play("spiked")
 	pass
 
 
