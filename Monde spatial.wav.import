@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Monde spatial.wav-f580e3e524d5e556c3e251315aec151a.sample"
+
+[deps]
+
+source_file="res://Monde spatial.wav"
+dest_files=[ "res://.import/Monde spatial.wav-f580e3e524d5e556c3e251315aec151a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -7,7 +7,7 @@
 [ext_resource path="res://perso_1_walk.png" type="Texture" id=5]
 [ext_resource path="res://perso_2_walk.png" type="Texture" id=6]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=5]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 40.4859 )
@@ -80,15 +80,12 @@ collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
 position = Vector2( 0, 2.05212 )
 scale = Vector2( 1, 1.04719 )
-shape = SubResource( 1 )
+shape = SubResource( 5 )
 
 [node name="Camera2D" type="Camera2D" parent="." index="1"]
 
