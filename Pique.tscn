@@ -10,12 +10,12 @@
 [ext_resource path="res://second_plat_tuto_spike.png" type="Texture" id=8]
 [ext_resource path="res://third_plat_tuto_spike.png" type="Texture" id=9]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 19, 19.1264 )
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
@@ -54,7 +54,7 @@ state = 0
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Clickable" type="Area2D" parent="." index="1"]
@@ -71,15 +71,15 @@ audio_bus_name = "Master"
 
 position = Vector2( 0.0977631, -0.106354 )
 scale = Vector2( 1.68747, 1.67893 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="2"]
 
 position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
-frames = SubResource( 1 )
+frames = SubResource( 2 )
 animation = "default"
-frame = 2
+frame = 3
 playing = true
 
 [node name="Spikes" type="Area2D" parent="." index="3"]

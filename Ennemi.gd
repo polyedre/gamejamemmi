@@ -15,10 +15,14 @@ var mouse_over = 0
 var grabbed = false
 var taken = 0
 
+export var flipped = false
+
 func _ready():
 	player = get_parent().get_node('Player')
 	nav2D = get_node("Navigation2D")
 	#print_tree()
+	if flipped:
+		flip(1)
 
 var velocity = Vector2()
 var direction = 0
@@ -28,9 +32,8 @@ var facing_right = false
 var en_charge = false
 
 func _physics_process(delta):
-	print (grabbed)
-	print ('mouse_over', mouse_over)
-	if Input.is_action_just_pressed('right_click') and mouse_over:
+
+	if Input.is_action_pressed('right_click') and mouse_over:
 		grabbed = true
 		play_anim('grabbed')
 	elif Input.is_action_just_released('right_click'):
@@ -38,37 +41,31 @@ func _physics_process(delta):
 		play_anim('idle')
 	if grabbed:
 		position = get_global_mouse_position()
-	else:
-		var point_near
-		if (player):
-			point_near = nav2D.get_closest_point(player.position)
-			if (player.position.x > position.x): flip(1)
-			elif (player.position.x < position.x): flip(-1)
-		
-			else:
-				velocity.x *= (abs(velocity.x) / MOVE_SPEED) * 0.95
-		
-		velocity = move_and_slide(point_near, Vector2(0, -1))
-		
-		var grounded = is_on_floor()
+	
+	else:	
 		velocity.y += GRAVITY
 	
 		if not en_charge:
 			
-			# Perso vu à droite
-			if (player.position.x > position.x && anim.flip_h):
-				if abs(player.position.x - position.x) < 5000:
-					en_charge = true
-					velocity.x = MOVE_SPEED
 			
-			if (player.position.x < position.x && !anim.flip_h):
-				if abs(player.position.x - position.x) < 5000:
-					en_charge = true
+			if abs(player.position.x - position.x) < 1000:
+				en_charge = true
+				if (player.position.x > position.x):
+					velocity.x = MOVE_SPEED
+					flip(1)
+				else:
 					velocity.x = -MOVE_SPEED
+					flip(-1)
+					
+				play_anim("walk")
+			
+			
+				
 			
 		else: # CHARGEEEEEEEEEZ !!
 			if not velocity.x:
 				en_charge = false
+				play_anim("idle")
 
 	velocity = move_and_slide(velocity, Vector2(0, -1))
 
