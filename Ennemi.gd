@@ -15,10 +15,14 @@ var mouse_over = 0
 var grabbed = false
 var taken = 0
 
+export var flipped = false
+
 func _ready():
 	player = get_parent().get_node('Player')
 	nav2D = get_node("Navigation2D")
 	#print_tree()
+	if flipped:
+		flip(1)
 
 var velocity = Vector2()
 var direction = 0
@@ -57,12 +61,12 @@ func _physics_process(delta):
 			
 			# Perso vu à droite
 			if (player.position.x > position.x && anim.flip_h):
-				if abs(player.position.x - position.x) < 5000:
+				if abs(player.position.x - position.x) < 1000:
 					en_charge = true
 					velocity.x = MOVE_SPEED
 			
 			if (player.position.x < position.x && !anim.flip_h):
-				if abs(player.position.x - position.x) < 5000:
+				if abs(player.position.x - position.x) < 1000:
 					en_charge = true
 					velocity.x = -MOVE_SPEED
 			

@@ -11,8 +11,8 @@ var available_paint
 var player
 
 const PAINT_WIDTH = 5
-const INITIAL_PAINT = 100
-const INK_TIME = 120
+const INITIAL_PAINT = 40
+const INK_TIME = 50
 
 class Drawing:
 
