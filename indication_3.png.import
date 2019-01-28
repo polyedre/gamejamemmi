@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/indication_3.png-e7e0145ded53d5dfd953fa11271a812a.stex"
+path="res://.import/indication_3.png-9429f523dc4cef30c7b861a2703becac.stex"
 
 [deps]
 
-source_file="res://indication/tuto/indication_3.png"
-dest_files=[ "res://.import/indication_3.png-e7e0145ded53d5dfd953fa11271a812a.stex" ]
+source_file="res://indication_3.png"
+dest_files=[ "res://.import/indication_3.png-9429f523dc4cef30c7b861a2703becac.stex" ]
 
 [params]
 

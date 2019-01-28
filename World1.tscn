@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Hell.gd" type="Script" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
@@ -22,6 +22,15 @@
 [ext_resource path="res://indication/end_game.png" type="Texture" id=20]
 [ext_resource path="res://Monde spatial.wav" type="AudioStream" id=21]
 [ext_resource path="res://Camera2D.gd" type="Script" id=22]
+[ext_resource path="res://indication_3.png" type="Texture" id=23]
+[ext_resource path="res://indication/tuto/indication_4.png" type="Texture" id=24]
+[ext_resource path="res://indication/tuto/indication_5.png" type="Texture" id=25]
+[ext_resource path="res://indication/tuto/indication_6.png" type="Texture" id=26]
+[ext_resource path="res://enemy_surprise.png" type="Texture" id=27]
+[ext_resource path="res://enemy_picked_1.png" type="Texture" id=28]
+[ext_resource path="res://first_plat_tuto_spike.png" type="Texture" id=29]
+[ext_resource path="res://indication/tuto/indication.png" type="Texture" id=30]
+[ext_resource path="res://indication/tuto/indication_2.png" type="Texture" id=31]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -91,6 +100,34 @@ animations = [ {
 "name": "walk",
 "speed": 5.0
 } ]
+
+[sub_resource type="StyleBoxFlat" id=9]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+bg_color = Color( 1, 1, 1, 1 )
+draw_center = true
+border_width_left = 0
+border_width_top = 0
+border_width_right = 0
+border_width_bottom = 0
+border_color = Color( 0.8, 0.8, 0.8, 1 )
+border_blend = false
+corner_radius_top_left = 0
+corner_radius_top_right = 0
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 0
+corner_detail = 8
+expand_margin_left = 0.0
+expand_margin_right = 0.0
+expand_margin_top = 0.0
+expand_margin_bottom = 0.0
+shadow_color = Color( 0, 0, 0, 0.6 )
+shadow_size = 0
+anti_aliasing = true
+anti_aliasing_size = 1
 
 [sub_resource type="SegmentShape2D" id=6]
 
@@ -185,6 +222,7 @@ _sections_unfolded = [ "Drawing", "Process Material", "Textures" ]
 scale = Vector2( 0.0904614, 0.0904614 )
 frames = SubResource( 3 )
 animation = "idle"
+frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -204,6 +242,8 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 0
+custom_styles/bg = SubResource( 9 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
 min_value = 0.0
 max_value = 100.0
 step = 1.0
@@ -213,7 +253,7 @@ exp_edit = false
 rounded = false
 percent_visible = false
 script = ExtResource( 8 )
-_sections_unfolded = [ "Anchor", "Percent" ]
+_sections_unfolded = [ "Anchor", "Percent", "custom_colors", "custom_styles" ]
 
 [node name="Camera2D" type="Camera2D" parent="Player" index="4"]
 
@@ -360,7 +400,6 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur1" index="1"]
@@ -393,7 +432,6 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur2" index="1"]
@@ -426,6 +464,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur3" index="1"]
@@ -458,7 +497,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 3
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur5" index="1"]
@@ -491,7 +530,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 2
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur6" index="1"]
@@ -524,7 +563,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 2
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur7" index="1"]
@@ -557,7 +596,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 2
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur8" index="1"]
@@ -590,7 +629,6 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur9" index="1"]
@@ -623,7 +661,6 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur13" index="1"]
@@ -656,6 +693,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur16" index="1"]
@@ -688,7 +726,6 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur10" index="1"]
@@ -721,7 +758,6 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur18" index="1"]
@@ -754,7 +790,6 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur22" index="1"]
@@ -767,7 +802,7 @@ shape = SubResource( 4 )
 
 editor/display_folded = true
 modulate = Color( 0.00390625, 0.0038147, 0.0038147, 1 )
-position = Vector2( 1408, -224 )
+position = Vector2( 1408, -320 )
 scale = Vector2( 5, 2 )
 input_pickable = false
 collision_layer = 1
@@ -787,7 +822,6 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur12" index="1"]
@@ -820,6 +854,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur17" index="1"]
@@ -852,7 +887,6 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur11" index="1"]
@@ -885,6 +919,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur14" index="1"]
@@ -917,7 +952,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 3
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur15" index="1"]
@@ -950,7 +985,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 2
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur23" index="1"]
@@ -983,7 +1018,6 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur24" index="1"]
@@ -1016,7 +1050,6 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur25" index="1"]
@@ -1049,6 +1082,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur26" index="1"]
@@ -1081,6 +1115,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur27" index="1"]
@@ -1113,6 +1148,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur28" index="1"]
@@ -1145,7 +1181,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 3
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur34" index="1"]
@@ -1178,7 +1214,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 3
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur35" index="1"]
@@ -1211,7 +1247,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 2
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur36" index="1"]
@@ -1244,7 +1280,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 2
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur37" index="1"]
@@ -1277,7 +1313,6 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur61" index="1"]
@@ -1310,6 +1345,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur92" index="1"]
@@ -1342,7 +1378,6 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur49" index="1"]
@@ -1375,7 +1410,6 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur57" index="1"]
@@ -1408,6 +1442,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur75" index="1"]
@@ -1440,6 +1475,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur93" index="1"]
@@ -1472,7 +1508,6 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur38" index="1"]
@@ -1505,6 +1540,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur59" index="1"]
@@ -1537,7 +1573,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 3
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur95" index="1"]
@@ -1570,6 +1606,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur47" index="1"]
@@ -1602,6 +1639,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur65" index="1"]
@@ -1634,7 +1672,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 3
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur81" index="1"]
@@ -1667,7 +1705,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 3
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur99" index="1"]
@@ -1700,7 +1738,6 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur39" index="1"]
@@ -1733,6 +1770,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur60" index="1"]
@@ -1765,7 +1803,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 3
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur91" index="1"]
@@ -1798,6 +1836,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur48" index="1"]
@@ -1830,6 +1869,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur64" index="1"]
@@ -1862,7 +1902,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 3
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur80" index="1"]
@@ -1895,7 +1935,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 3
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur98" index="1"]
@@ -1928,7 +1968,6 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur40" index="1"]
@@ -1961,6 +2000,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur56" index="1"]
@@ -1993,7 +2033,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 3
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur96" index="1"]
@@ -2026,6 +2066,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur46" index="1"]
@@ -2058,6 +2099,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur68" index="1"]
@@ -2090,7 +2132,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 3
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur85" index="1"]
@@ -2123,7 +2165,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 3
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur103" index="1"]
@@ -2156,7 +2198,6 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur41" index="1"]
@@ -2189,6 +2230,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur63" index="1"]
@@ -2221,7 +2263,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 3
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur100" index="1"]
@@ -2254,6 +2296,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur51" index="1"]
@@ -2286,6 +2329,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur58" index="1"]
@@ -2318,7 +2362,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 3
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur77" index="1"]
@@ -2351,7 +2395,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 3
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur97" index="1"]
@@ -2384,6 +2428,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur42" index="1"]
@@ -2416,7 +2461,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 3
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur71" index="1"]
@@ -2449,7 +2494,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 2
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur106" index="1"]
@@ -2482,7 +2527,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 3
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur54" index="1"]
@@ -2515,7 +2560,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 3
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur69" index="1"]
@@ -2548,7 +2593,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 2
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur86" index="1"]
@@ -2581,7 +2626,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 2
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur104" index="1"]
@@ -2614,7 +2659,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 3
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur43" index="1"]
@@ -2647,7 +2692,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 3
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur62" index="1"]
@@ -2680,7 +2725,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 2
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur90" index="1"]
@@ -2713,7 +2758,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 2
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur108" index="1"]
@@ -2746,7 +2791,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 3
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur50" index="1"]
@@ -2779,7 +2824,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 3
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur55" index="1"]
@@ -2812,7 +2857,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 2
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur76" index="1"]
@@ -2845,7 +2890,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 2
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur94" index="1"]
@@ -2878,7 +2923,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 3
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur44" index="1"]
@@ -2911,7 +2956,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 2
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur66" index="1"]
@@ -2944,7 +2989,6 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur83" index="1"]
@@ -2977,7 +3021,6 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur101" index="1"]
@@ -3010,7 +3053,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 2
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur52" index="1"]
@@ -3043,7 +3086,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 2
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur72" index="1"]
@@ -3076,7 +3119,6 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur89" index="1"]
@@ -3109,7 +3151,6 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur107" index="1"]
@@ -3142,7 +3183,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 2
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur45" index="1"]
@@ -3175,7 +3216,6 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur67" index="1"]
@@ -3208,6 +3248,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur84" index="1"]
@@ -3240,6 +3281,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur102" index="1"]
@@ -3272,7 +3314,6 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur53" index="1"]
@@ -3305,7 +3346,6 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur70" index="1"]
@@ -3338,6 +3378,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur87" index="1"]
@@ -3370,6 +3411,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur105" index="1"]
@@ -3402,7 +3444,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 3
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur29" index="1"]
@@ -3435,7 +3477,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 3
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur30" index="1"]
@@ -3468,7 +3510,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 2
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur31" index="1"]
@@ -3501,7 +3543,6 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur32" index="1"]
@@ -3534,7 +3575,7 @@ position = Vector2( -2.16795, 8.3754 )
 scale = Vector2( 0.055073, 0.164423 )
 frames = SubResource( 7 )
 animation = "default"
-frame = 3
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Murs/Mur4" index="1"]
@@ -3620,7 +3661,7 @@ audio_bus_name = "Master"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger" index="0"]
 
-position = Vector2( 4928, 384 )
+position = Vector2( 4928, 320 )
 scale = Vector2( 96, 0.5 )
 shape = SubResource( 8 )
 
@@ -3651,6 +3692,108 @@ editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
 script = ExtResource( 22 )
+_sections_unfolded = [ "Limit", "Offset", "Smoothing", "Transform" ]
+
+[node name="indication_3" type="Sprite" parent="." index="18"]
+
+modulate = Color( 1, 1, 1, 0.723765 )
+position = Vector2( 1600, -64 )
+scale = Vector2( 0.398734, 0.322129 )
+texture = ExtResource( 23 )
+
+[node name="indication_4" type="Sprite" parent="indication_3" index="0"]
+
+modulate = Color( 1, 1, 1, 0.723765 )
+position = Vector2( 481.524, 0 )
+texture = ExtResource( 24 )
+
+[node name="indication_5" type="Sprite" parent="indication_3/indication_4" index="0"]
+
+modulate = Color( 1, 1, 1, 0.723765 )
+position = Vector2( -160.508, -198.678 )
+texture = ExtResource( 25 )
+
+[node name="indication_6" type="Sprite" parent="." index="19"]
+
+modulate = Color( 1, 1, 1, 0.508314 )
+position = Vector2( 4032, -384 )
+texture = ExtResource( 26 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="indication_4" type="Sprite" parent="." index="20"]
+
+modulate = Color( 1, 1, 1, 0.524863 )
+position = Vector2( 4224, 128 )
+scale = Vector2( 0.702532, 0.680672 )
+texture = ExtResource( 23 )
+
+[node name="enemy_surprise" type="Sprite" parent="." index="21"]
+
+modulate = Color( 1, 1, 1, 0.524863 )
+position = Vector2( 4032, 64 )
+scale = Vector2( 0.254167, 0.368519 )
+texture = ExtResource( 27 )
+
+[node name="indication_5" type="Sprite" parent="." index="22"]
+
+modulate = Color( 1, 1, 1, 0.530392 )
+position = Vector2( 4416, -64 )
+texture = ExtResource( 25 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="enemy_picked_1" type="Sprite" parent="." index="23"]
+
+modulate = Color( 1, 1, 1, 0.524863 )
+position = Vector2( 4736, 64 )
+scale = Vector2( 0.276224, 0.262963 )
+texture = ExtResource( 28 )
+
+[node name="first_plat_tuto_spike" type="Sprite" parent="." index="24"]
+
+modulate = Color( 1, 1, 1, 0.508274 )
+position = Vector2( 8640, 0 )
+scale = Vector2( 0.216666, 0.25 )
+texture = ExtResource( 29 )
+
+[node name="indication_3" type="Sprite" parent="first_plat_tuto_spike" index="0"]
+
+modulate = Color( 1, 1, 1, 0.508274 )
+position = Vector2( 886.156, 256 )
+texture = ExtResource( 23 )
+
+[node name="indication_7" type="Sprite" parent="." index="25"]
+
+modulate = Color( 1, 1, 1, 0.508274 )
+position = Vector2( 9024, -128 )
+texture = ExtResource( 25 )
+
+[node name="first_plat_tuto" type="Sprite" parent="." index="26"]
+
+modulate = Color( 1, 1, 1, 0.458549 )
+position = Vector2( 9408, 0 )
+scale = Vector2( 0.266667, 0.309259 )
+texture = ExtResource( 13 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="indication" type="Sprite" parent="." index="27"]
+
+modulate = Color( 1, 1, 1, 0.552471 )
+position = Vector2( -82.1863, 159.863 )
+scale = Vector2( 0.584745, 0.715395 )
+texture = ExtResource( 30 )
+
+[node name="indication_2" type="Sprite" parent="indication" index="0"]
+
+position = Vector2( 359.449, -134 )
+scale = Vector2( 0.7343, 0.725912 )
+texture = ExtResource( 31 )
+
+[node name="perso_jump" type="Sprite" parent="indication/indication_2" index="0"]
+
+modulate = Color( 1, 1, 1, 0.552471 )
+position = Vector2( -149.053, 246.479 )
+scale = Vector2( 0.295932, 0.220881 )
+texture = ExtResource( 5 )
 
 [connection signal="body_entered" from="Trigger" to="Camera2D" method="_on_Trigger_body_entered"]
 
